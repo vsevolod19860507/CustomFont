@@ -40,3 +40,4 @@ struct ContentView: View {
     }
 }
 ```
+You can see the full example here https://github.com/vsevolod19860507/SwiftUITemplate/blob/main/SwiftUITemplate/Font.swift
