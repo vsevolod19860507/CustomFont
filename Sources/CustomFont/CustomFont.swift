@@ -23,7 +23,7 @@ public struct CustomTextStyle {
         self.textStyle = textStyle
     }
     
-    init(_ fontFamily: FontFamily, fixedSize: CGFloat) {
+    public init(_ fontFamily: FontFamily, fixedSize: CGFloat) {
         self.fontFamily = fontFamily
         self.size = fixedSize
         self.textStyle = nil
@@ -52,10 +52,10 @@ public protocol FontFamily {
     var bolder: Self { get }
 }
 
-extension FontFamily where Self: Equatable,
-                           Self: RawRepresentable<String>,
-                           Self: CaseIterable,
-                           AllCases == [Self] {
+public extension FontFamily where Self: Equatable,
+                                  Self: RawRepresentable<String>,
+                                  Self: CaseIterable,
+                                  AllCases == [Self] {
     var name: String {
         Self.baseName + rawValue
     }
