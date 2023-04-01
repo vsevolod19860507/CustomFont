@@ -11,23 +11,31 @@ import SwiftUI
 import CustomFont
 
 extension CustomTextStyle {
-    static let headline = CustomTextStyle(DancingScript.medium, size: 17, relativeTo: .headline)
-    static let body = CustomTextStyle(DancingScript.regular, size: 17)
+    static let headline = CustomTextStyle(Barlow.semiBold, size: 17, relativeTo: .headline)
+    static let body = CustomTextStyle(Barlow.regular, size: 17)
 }
 
-fileprivate enum DancingScript: String, CaseIterable, FontFamily {
-    static let baseName = "DancingScript-"
+fileprivate enum Barlow: String, CaseIterable, FontFamily {
+    static let baseName = "Barlow-"
     
-    case regular, medium, semiBold
+    case regular, medium, semiBold, bold
 }
 
 struct ContentView: View {
+    @Environment(\.legibilityWeight) private var legibilityWeight
+    
     var body: some View {
         VStack {
             Text("Hello World!")
                 .font(.custom(.headline))
             Text("Hello World!")
                 .font(.custom(.body))
+            
+            Text("Hello")
+                .font(.custom(.headline), consider: legibilityWeight)
+                .italic() +
+            Text("World!")
+                .font(.custom(.body), consider: legibilityWeight)
         }
     }
 }
