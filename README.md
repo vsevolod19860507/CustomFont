@@ -2,7 +2,7 @@
 
 ## Installation
 
-To install this package, import `https://github.com/vsevolod19860507/customFont` in SPM.
+To install this package, import `https://github.com/vsevolod19860507/CustomFont` in SPM.
 
 ## Usage example
 
