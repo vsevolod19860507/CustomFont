@@ -85,7 +85,8 @@ public extension View {
 
 public struct FontViewModifier: ViewModifier {
     @Environment(\.legibilityWeight) private var legibilityWeight
-    let customFont: CustomFont
+    
+    public let customFont: CustomFont
     
     public func body(content: Content) -> some View {
         content.font(customFont(legibilityWeight))
