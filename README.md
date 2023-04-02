@@ -1,6 +1,6 @@
 # CustomFont
 
-Сonvenient work with custom fonts in SwiftUI
+Convenient work with custom fonts in SwiftUI
 
 ## Installation
 
