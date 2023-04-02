@@ -1,5 +1,7 @@
 # CustomFont
 
+Сonvenient work with custom fonts in SwiftUI
+
 ## Installation
 
 To install this package, import `https://github.com/vsevolod19860507/CustomFont` in SPM.
