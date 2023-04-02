@@ -88,6 +88,10 @@ public struct FontViewModifier: ViewModifier {
     
     public let customFont: CustomFont
     
+    public init(customFont: CustomFont) {
+        self.customFont = customFont
+    }
+    
     public func body(content: Content) -> some View {
         content.font(customFont(legibilityWeight))
     }
