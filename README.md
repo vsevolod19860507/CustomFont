@@ -13,33 +13,25 @@ import SwiftUI
 import CustomFont
 
 extension CustomTextStyle {
-    static let headline = CustomTextStyle(Barlow.semiBold, size: 17, relativeTo: .headline)
+    static let largeTitle = CustomTextStyle(Barlow.thin, size: 34, relativeTo: .largeTitle)
     static let body = CustomTextStyle(Barlow.regular, size: 17)
 }
 
 fileprivate enum Barlow: String, CaseIterable, FontFamily {
     static let baseName = "Barlow-"
     
-    case regular, medium, semiBold, bold
+    case thin, extraLight, regular, medium
 }
 
-struct ContentView: View {
-    @Environment(\.legibilityWeight) private var legibilityWeight
-    
+struct ContentView: View {    
     var body: some View {
         VStack {
             Text("Hello World!")
-                .font(.custom(.headline))
+                .font(.custom(.largeTitle))
             Text("Hello World!")
                 .font(.custom(.body))
-            
-            Text("Hello")
-                .font(.custom(.headline), consider: legibilityWeight)
-                .italic() +
-            Text("World!")
-                .font(.custom(.body), consider: legibilityWeight)
         }
     }
 }
 ```
-You can see the full example here https://github.com/vsevolod19860507/SwiftUITemplate/blob/main/SwiftUITemplate/Font.swift
+[More examples](https://github.com/vsevolod19860507/CustomFont/tree/main/Examples)
