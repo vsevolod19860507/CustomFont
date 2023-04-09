@@ -4,22 +4,19 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-        <string>Barlow-Thin.ttf</string>
-        <string>Barlow-ThinItalic.ttf</string>
-        <string>Barlow-ExtraLight.ttf</string>
-        <string>Barlow-ExtraLightItalic.ttf</string>
-        <string>Barlow-Regular.ttf</string>
-        <string>Barlow-Italic.ttf</string>
-        <string>Barlow-Medium.ttf</string>
-        <string>Barlow-MediumItalic.ttf</string>
-
-        <string>DancingScript-Bold.ttf</string>
-        <string>NewYorkExtraLarge-Bold.otf</string>
-        <string>NewYorkExtraLarge-Semibold.otf</string>
-        <string>NewYorkExtraLarge-BoldItalic.otf</string>
-        <string>NewYorkExtraLarge-SemiboldItalic.otf</string>
-        
-
+		<string>Barlow-Thin.ttf</string>
+		<string>Barlow-ThinItalic.ttf</string>
+		<string>Barlow-ExtraLight.ttf</string>
+		<string>Barlow-ExtraLightItalic.ttf</string>
+		<string>Barlow-Regular.ttf</string>
+		<string>Barlow-Italic.ttf</string>
+		<string>Barlow-Medium.ttf</string>
+		<string>Barlow-MediumItalic.ttf</string>
+		<string>DancingScript-Bold.ttf</string>
+		<string>NewYorkExtraLarge-Bold.otf</string>
+		<string>NewYorkExtraLarge-Semibold.otf</string>
+		<string>NewYorkExtraLarge-BoldItalic.otf</string>
+		<string>NewYorkExtraLarge-SemiboldItalic.otf</string>
 	</array>
 </dict>
 </plist>
