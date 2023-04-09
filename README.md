@@ -17,6 +17,10 @@ extension CustomTextStyle {
     static let body = CustomTextStyle(Barlow.regular, size: 17)
 }
 
+// Don't add cases for italic fonts, use the .italic() view modifier instead!
+// Order is important, add less bold fonts first!
+// Also add bolder fonts in addition to the ones you use to account for LegibilityWeight settings.
+// If you need Barlow thin and regular add also extraLight and medium respectively.
 fileprivate enum Barlow: String, CaseIterable, FontFamily {
     static let baseName = "Barlow-"
     
