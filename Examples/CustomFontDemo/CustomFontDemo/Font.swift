@@ -50,7 +50,7 @@ struct FontView: View {
     
     private var attributedString: AttributedString {
         var result = AttributedString("Hello World!")
-        result.font = CustomFont.custom(.title).getFont(consider: legibilityWeight)
+        result.font = .custom(.title).getFont(consider: legibilityWeight)
         return result
     }
     
