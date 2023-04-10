@@ -13,7 +13,7 @@ public struct CustomFont {
     
     fileprivate let customTextStyle: CustomTextStyle
     
-    public func getFont(consider legibilityWeight: LegibilityWeight?) -> Font {
+    public func getFont(accordingTo legibilityWeight: LegibilityWeight?) -> Font {
         customTextStyle(legibilityWeight)
     }
 }
@@ -129,8 +129,8 @@ public extension FontFamily where Self: Equatable,
 }
 
 public extension Text {
-    func font(_ customFont: CustomFont, consider legibilityWeight: LegibilityWeight?) -> Text {
-        self.font(customFont.getFont(consider: legibilityWeight))
+    func font(_ customFont: CustomFont, accordingTo legibilityWeight: LegibilityWeight?) -> Text {
+        self.font(customFont.getFont(accordingTo: legibilityWeight))
     }
 }
 
@@ -150,6 +150,6 @@ public struct FontViewModifier: ViewModifier {
     }
     
     public func body(content: Content) -> some View {
-        content.font(customFont.getFont(consider: legibilityWeight))
+        content.font(customFont.getFont(accordingTo: legibilityWeight))
     }
 }

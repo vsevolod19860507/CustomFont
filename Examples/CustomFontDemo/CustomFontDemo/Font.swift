@@ -50,7 +50,7 @@ struct FontView: View {
     
     private var attributedString: AttributedString {
         var result = AttributedString("Hello World!")
-        result.font = .custom(.title).getFont(consider: legibilityWeight)
+        result.font = .custom(.title).getFont(accordingTo: legibilityWeight)
         return result
     }
     
@@ -82,10 +82,10 @@ struct FontView: View {
                     .italic()
                 Text(attributedString)
                 Text("Hello ")
-                    .font(.custom(.title), consider: legibilityWeight)
+                    .font(.custom(.title), accordingTo: legibilityWeight)
                     .italic() +
                 Text("World!")
-                    .font(.custom(.footnote), consider: legibilityWeight)
+                    .font(.custom(.footnote), accordingTo: legibilityWeight)
             }
         }
     }
