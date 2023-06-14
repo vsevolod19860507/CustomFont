@@ -130,7 +130,7 @@ public extension FontFamily where Self: Equatable,
 
 public extension Text {
     func font(_ customFont: CustomFont, accordingTo legibilityWeight: LegibilityWeight?) -> Text {
-        self.font(customFont.getFont(accordingTo: legibilityWeight))
+        font(customFont.getFont(accordingTo: legibilityWeight))
     }
 }
 
