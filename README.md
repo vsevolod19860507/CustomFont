@@ -1,41 +1,72 @@
-# CustomFont
+# **CustomFont**
 
-Convenient work with custom fonts in SwiftUI
+The CustomFont is designed for the convenient integration and management of custom fonts in a SwiftUI application. It offers an intuitive interface for creating custom text styles and mechanisms for dynamic text boldness control based on user-defined accessibility settings using LegibilityWeight.
 
-## Installation
+## **Key Features**
 
-To install this package, import `https://github.com/vsevolod19860507/CustomFont` in SPM.
+- **Custom Text Style**: Create styles with automatic scaling or fixed size.
+- **Dynamic Boldness**: Adjust text boldness according to accessibility settings.
+- **Easy Font Integration**: Add and use your fonts effortlessly.
+- **SwiftUI Integration**: Apply text styles directly in your SwiftUI views.
 
-## Usage example
+## **How to Use**
 
+1. **Adding Fonts to the Project:**
+First, add the desired fonts to your project as you usually would, and also make sure to list them in the Info.plist file.
+
+2. **Defining a Custom Style:**
+Here, we are using the NewYorkExtraLarge font as an example:
 ```swift
-import SwiftUI
-import CustomFont
+fileprivate enum NewYorkExtraLarge: String, CaseIterable, FontFamily {
+    static let baseName = "NewYorkExtraLarge-"
+    
+    case semiBold, bold
+}
 
 extension CustomTextStyle {
-    static let largeTitle = CustomTextStyle(Barlow.thin, size: 34, relativeTo: .largeTitle)
-    static let body = CustomTextStyle(Barlow.regular, size: 17)
-}
-
-// Don't add cases for italic fonts, use the .italic() view modifier instead!
-// Order is important, add less bold fonts first!
-// Also add bolder fonts in addition to the ones you use to account for LegibilityWeight settings.
-// If you need Barlow thin and regular add also extraLight and medium respectively.
-fileprivate enum Barlow: String, CaseIterable, FontFamily {
-    static let baseName = "Barlow-"
-    
-    case thin, extraLight, regular, medium
-}
-
-struct ContentView: View {    
-    var body: some View {
-        VStack {
-            Text("Hello World!")
-                .font(.custom(.largeTitle))
-            Text("Hello World!")
-                .font(.custom(.body))
-        }
-    }
+    /// NewYorkExtraLarge, 600, 28, fixed
+    static let titleFixed = CustomTextStyle(NewYorkExtraLarge.semiBold, fixedSize: 28)
+    /// NewYorkExtraLarge, 600, 28
+    static let title = CustomTextStyle(NewYorkExtraLarge.semiBold, size: 28, relativeTo: .title)
 }
 ```
-[More examples](https://github.com/vsevolod19860507/CustomFont/tree/main/Examples)
+
+3. **Using the Style in SwiftUI:**
+```swift
+struct ContentView: View {
+    @Environment(\.legibilityWeight) private var legibilityWeight
+    
+    private var attributedString: AttributedString {
+        var result = AttributedString("Hello World!")
+        result.font = .custom(.title).getFont(accordingTo: legibilityWeight)
+        return result
+    }
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Hello World!")
+                .font(.custom(.titleFixed))
+                
+            Text("Hello World!")
+                .font(.custom(.title))
+                
+            Text("Hello World!")
+                .font(.custom(.title))
+                .italic()
+            
+            Text(attributedString)
+            
+            Text("Hello World!")
+                .font(.custom(.title), accordingTo: legibilityWeight)
+        }
+        .padding()
+    }
+}
+
+```
+
+
+## **Conclusion**
+CustomFont simplifies working with custom fonts in SwiftUI, providing a unified and consistent approach to managing text styles. With this package, your user interfaces will look polished and professional, irrespective of chosen accessibility settings.
+
+[More examples](Examples/)

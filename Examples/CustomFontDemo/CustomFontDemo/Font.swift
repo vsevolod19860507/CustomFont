@@ -27,6 +27,12 @@ extension CustomTextStyle {
     static let footnote = CustomTextStyle(DancingScript.bold, size: 13, relativeTo: .footnote)
 }
 
+fileprivate enum NewYorkExtraLarge: String, CaseIterable, FontFamily {
+    static let baseName = "NewYorkExtraLarge-"
+    
+    case semiBold, bold
+}
+
 fileprivate enum Barlow: String, CaseIterable, FontFamily {
     static let baseName = "Barlow-"
     
@@ -37,12 +43,6 @@ fileprivate enum DancingScript: String, CaseIterable, FontFamily {
     static let baseName = "DancingScript-"
     
     case bold
-}
-
-fileprivate enum NewYorkExtraLarge: String, CaseIterable, FontFamily {
-    static let baseName = "NewYorkExtraLarge-"
-    
-    case semiBold, bold
 }
 
 struct FontView: View {
