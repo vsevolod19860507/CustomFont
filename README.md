@@ -1,21 +1,29 @@
-# **CustomFont**
+# CustomFont
 
-The CustomFont is designed for the convenient integration and management of custom fonts in a SwiftUI application. It offers an intuitive interface for creating custom text styles and mechanisms for dynamic text boldness control based on user-defined accessibility settings using LegibilityWeight.
+The `CustomFont` is designed for intuitive integration and management of fonts within a SwiftUI application. It provides a user-friendly interface for crafting text styles and introduces mechanisms to dynamically control text boldness based on user-defined accessibility settings with `LegibilityWeight`.
 
-## **Key Features**
+## Key Features
 
-- **Custom Text Style**: Create styles with automatic scaling or fixed size.
-- **Dynamic Boldness**: Adjust text boldness according to accessibility settings.
-- **Easy Font Integration**: Add and use your fonts effortlessly.
-- **SwiftUI Integration**: Apply text styles directly in your SwiftUI views.
+- **Custom Text Style**: Design styles with either automatic scaling or specified fixed sizes.
+- **Dynamic Boldness**: Adjust text boldness in alignment with accessibility settings.
+- **Easy Font Integration**: Effortlessly introduce and deploy your fonts.
+- **SwiftUI Integration**: Apply text styles seamlessly within your SwiftUI views.
 
-## **How to Use**
+## How to Use
 
-1. **Adding Fonts to the Project:**
-First, add the desired fonts to your project as you usually would, and also make sure to list them in the Info.plist file.
+### 1. Adding Fonts to the Project
 
-2. **Defining a Custom Style:**
-Here, we are using the NewYorkExtraLarge font as an example:
+Add the desired fonts to your project as per usual. Also, remember to list them in the `Info.plist` file.
+
+### 2. Defining Fonts
+
+Define your fonts using the provided protocols. Take note:
+
+- **Font Names**: Ensure that you've added the font names you intend to use to a type that conforms to the `FontFamily` protocol.
+- **Italic Fonts**: Do not add specific cases for italic fonts. Instead, use the `.italic()` view modifier to achieve the italic style. However, ensure that italic variants of your fonts are included in your project. Without them, the `.italic()` view modifier won't have any effect.
+- **Font Weight Order**: Arrange your font weights sequentially, starting from the "Light" variants and progressing to the "Bold" ones.
+- **Adapting to LegibilityWeight**: To allow your fonts to adapt to `LegibilityWeight` settings, both include the font of the next boldest weight in your project and list it as a case in your `FontFamily` type. This is vital for the `LegibilityWeight` functionality to work correctly.
+
 ```swift
 fileprivate enum NewYorkExtraLarge: String, CaseIterable, FontFamily {
     static let baseName = "NewYorkExtraLarge-"
@@ -31,7 +39,8 @@ extension CustomTextStyle {
 }
 ```
 
-3. **Using the Style in SwiftUI:**
+### 3. Using Fonts
+
 ```swift
 struct ContentView: View {
     @Environment(\.legibilityWeight) private var legibilityWeight
@@ -62,11 +71,6 @@ struct ContentView: View {
         .padding()
     }
 }
-
 ```
-
-
-## **Conclusion**
-CustomFont simplifies working with custom fonts in SwiftUI, providing a unified and consistent approach to managing text styles. With this package, your user interfaces will look polished and professional, irrespective of chosen accessibility settings.
 
 [More examples](Examples/)
